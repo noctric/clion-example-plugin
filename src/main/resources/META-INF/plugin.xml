@@ -1,11 +1,10 @@
 <idea-plugin>
-    <id>de.michael.clion-example-plugin</id>
-    <name>Plugin display name here</name>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+    <id>de.michael.clion-example-plugin</id>ic
+    <name>Example CLion lugin</name>
+    <vendor email="michael@soapsurfer.de" url="https://github.com/noctric/">noctr</vendor>
 
     <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
+    Simple plugin showcasing some basic CLion functionality and how to extend it
     ]]></description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
@@ -18,7 +17,11 @@
         <!-- Add your extensions here -->
         <directoryProjectGenerator
                 implementation="de.michael.projectwizard.ExampleCProjectGenerator"
-                id="de.michael.NewProject"
+                id="de.michael.NewCProject"
+                order="first"/>
+        <directoryProjectGenerator
+                implementation="de.michael.projectwizard.ExampleCustomProjectGenerator"
+                id="de.michael.NewCustomProject"
                 order="first"/>
     </extensions>
 
