@@ -16,6 +16,10 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
+        <directoryProjectGenerator
+                implementation="de.michael.projectwizard.ExampleCProjectGenerator"
+                id="de.michael.NewProject"
+                order="first"/>
     </extensions>
 
     <actions>
