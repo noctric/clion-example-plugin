@@ -1,17 +1,19 @@
 buildscript {
-    ext.kotlin_version = '1.2.31'
+    ext.kotlin_version = '1.2.51'
 
     repositories {
         mavenCentral()
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.junit.platform:junit-platform-gradle-plugin:1.0.0-M4"
     }
 }
 
 plugins {
     id 'java'
-    id 'org.jetbrains.intellij' version '0.2.13'
+    id 'org.jetbrains.intellij' version '0.3.4'
+    id 'org.jetbrains.kotlin.jvm' version '1.2.51'
 }
 
 group 'de.michael'
@@ -26,8 +28,8 @@ sourceSets {
         resources.srcDir 'src/main/resources'
     }
     test {
-        java.srcDir 'src/test'
-        kotlin.srcDir 'src/test'
+        java.srcDir 'src/test/java'
+        kotlin.srcDir 'src/test/kotlin'
         resources.srcDir 'src/test/resources'
     }
 }
@@ -38,6 +40,14 @@ test {
             'junit.jupiter.extensions.autodetection.enabled': 'true',
             'junit.jupiter.testinstance.lifecycle.default'  : 'per_class'
     ]
+
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+
+    reports {
+        html.enabled = true
+    }
 }
 
 sourceCompatibility = 1.8
@@ -74,6 +84,8 @@ dependencies {
 
     // Enable use of the JUnitPlatform Runner within the IDE
     testCompile("org.junit.platform:junit-platform-runner:1.0.0-M4")
+
+    testCompile "org.mockito:mockito-core:2.+"
 }
 
 compileKotlin {

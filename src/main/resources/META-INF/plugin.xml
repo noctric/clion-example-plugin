@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>de.michael.clion-example-plugin</id>ic
     <name>Example CLion lugin</name>
-    <vendor email="michael@soapsurfer.de" url="https://github.com/noctric/">noctr</vendor>
+    <vendor email="michael@soapsurfer.de" url="https://github.com/noctric/">noctric</vendor>
 
     <description><![CDATA[
     Simple plugin showcasing some basic CLion functionality and how to extend it

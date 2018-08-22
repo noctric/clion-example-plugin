@@ -8,8 +8,13 @@ class ExampleCProjectGenerator: CMakeAbstractCProjectGenerator() {
 
     override fun getName(): String = "Custom C Project Generator"
 
-    override fun createSourceFiles(projectName: String, projectDir: VirtualFile): Array<VirtualFile> {
-        val content = "your file content here!"
+    public override fun createSourceFiles(projectName: String, projectDir: VirtualFile): Array<VirtualFile> {
+        val content = "#include <stdio.h>\n" +
+                "\n" +
+                "int main() {\n" +
+                "\tprintf(\"Hello, World!\\n\");\n" +
+                "\treturn 0;\n" +
+                "}"
         val filename = "myFile.c"
 
         val vf = createProjectFileWithContent(projectDir, filename, content)
